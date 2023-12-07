@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cards.forEach((card, index) => {
         card.setAttribute("tabindex", "0"); // Make cards focusable
 
-        card.addEventListener("click", () => {
+        card.addEventListener("click", (event) => {
             const isOpen = card.classList.contains("active");
 
             cards.forEach(otherCard => {
@@ -34,8 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!isOpen) {
                 card.classList.add("active", "open");
-            } else {
-                card.classList.remove("active");
+                event.stopPropagation(); // Prevent the click event from reaching document
             }
         });
 
@@ -50,5 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 cards[prevIndex].focus();
             }
         });
+    });
+
+    document.addEventListener("click", (event) => {
+        const isClickedInsideCard = event.target.closest('.card');
+        
+        if (!isClickedInsideCard) {
+            cards.forEach(card => {
+                card.classList.remove("active", "open");
+            });
+        }
     });
 });
