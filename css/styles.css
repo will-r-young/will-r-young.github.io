@@ -254,7 +254,7 @@ h3 {
 	flex-direction: column;
 	align-items: center;
 	z-index: 10;
-	height: 80vh;
+	height: 100%;
 	margin: 20px;
 	margin-top: 0px;
 }
@@ -374,9 +374,9 @@ h3 {
 }
 
 .secret {
-	display: flex;
+	display: flex-start;
 	flex-direction: column;
-	margin: 20px;
+	align-items: center;
 	margin-top: -100px;
 }
 
