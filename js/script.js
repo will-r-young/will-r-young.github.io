@@ -1,63 +1,93 @@
 window.addEventListener("load", () => {
     const loader = document.querySelector(".loader");
 
-    loader.classList.add("loader-hidden");
+    if (loader && loader.parentNode) {
+        loader.classList.add("loader-hidden");
 
-    loader.addEventListener("transitionend", () => {
-        document.body.removeChild(loader);
-    });
+        setTimeout(() => {
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
+        }, 1000);
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+	
+	
     const cards = document.querySelectorAll(".card");
 
-    document.getElementById("cards").onmousemove = e => {
-        for (const card of document.getElementsByClassName("card")) {
-            const rect = card.getBoundingClientRect(),
-                x = e.clientX - rect.left,
-                y = e.clientY - rect.top;
+    function setupCardListeners() {
+        const cardsContainer = document.getElementById("cards");
 
-            card.style.setProperty("--mouse-x", `${x}px`);
-            card.style.setProperty("--mouse-y", `${y}px`);
+        if (cardsContainer) {
+            cardsContainer.onmousemove = e => {
+                for (const card of cards) {
+                    const rect = card.getBoundingClientRect(),
+                        x = e.clientX - rect.left,
+                        y = e.clientY - rect.top;
+
+                    card.style.setProperty("--mouse-x", `${x}px`);
+                    card.style.setProperty("--mouse-y", `${y}px`);
+                }
+            };
         }
-    };
 
-    cards.forEach((card, index) => {
-        card.setAttribute("tabindex", "0"); // Make cards focusable
+        let toggle = document.querySelector('.toggle');
+        let menu = document.querySelector('.menu');
 
-        card.addEventListener("click", (event) => {
-            const isOpen = card.classList.contains("active");
+        toggle.onclick = () => {
+            menu.classList.toggle('active');
+        };
 
-            cards.forEach(otherCard => {
-                otherCard.classList.remove("active", "open");
+        cards.forEach((card, index) => {
+            card.setAttribute("tabindex", "0");
+
+            card.addEventListener("click", (event) => {
+                const isOpen = card.classList.contains("active");
+
+                cards.forEach(otherCard => {
+                    otherCard.classList.remove("active", "open");
+                });
+
+                if (!isOpen) {
+                    card.classList.add("active", "open");
+                    event.stopPropagation();
+                }
             });
 
-            if (!isOpen) {
-                card.classList.add("active", "open");
-                event.stopPropagation(); // Prevent the click event from reaching document
-            }
-        });
-
-        card.addEventListener("keydown", (event) => {
-            if (event.key === "ArrowRight") {
-                const nextIndex = (index + 1) % cards.length;
-                cards[nextIndex].click();
-                cards[nextIndex].focus();
-            } else if (event.key === "ArrowLeft") {
-                const prevIndex = (index - 1 + cards.length) % cards.length;
-                cards[prevIndex].click();
-                cards[prevIndex].focus();
-            }
-        });
-    });
-
-    document.addEventListener("click", (event) => {
-        const isClickedInsideCard = event.target.closest('.card');
-        
-        if (!isClickedInsideCard) {
-            cards.forEach(card => {
-                card.classList.remove("active", "open");
+            card.addEventListener("keydown", (event) => {
+                if (event.key === "ArrowRight") {
+                    const nextIndex = (index + 1) % cards.length;
+                    cards[nextIndex].click();
+                    cards[nextIndex].focus();
+                } else if (event.key === "ArrowLeft") {
+                    const prevIndex = (index - 1 + cards.length) % cards.length;
+                    cards[prevIndex].click();
+                    cards[prevIndex].focus();
+                }
             });
-        }
-    });
+        });
+
+        document.addEventListener("click", (event) => {
+            const isClickedInsideCard = event.target.closest('.card');
+
+            if (!isClickedInsideCard) {
+                cards.forEach(card => {
+                    card.classList.remove("active", "open");
+                });
+            }
+        });
+    }
+
+    if (cards.length > 0) {
+        setupCardListeners();
+    } else {
+        let toggle = document.querySelector('.toggle');
+        let menu = document.querySelector('.menu');
+
+        toggle.onclick = () => {
+            menu.classList.toggle('active');
+        };
+    }
 });

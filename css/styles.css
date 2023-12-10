@@ -53,6 +53,76 @@
 	}
 }
 
+.menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	right:0;
+	top: 0;
+	width: 75px;
+	height: 75px;
+	box-sizing: border-box;
+	z-index:3;
+}
+.menu li {
+	position: absolute;
+	list-style: none;  
+	transform-origin: bottom;
+	opacity: 0;
+}
+.menu li a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: '';
+	height: '';
+	padding: 5px;
+	border-radius: 10px;
+	background: indigo;
+	cursor: pointer;
+	box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+	color: #111;
+	transition: .5s;
+	}
+.menu li a:hover {
+	color: mediumaquamarine;
+	background-color: navy;
+	box-shadow: 0 0 4px rgba(0, 128, 128, .8);
+	transform: scale(1.05) translateX(-10px);
+}
+.toggle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: mediumslateblue;
+	cursor: pointer;
+	z-index: 9999;
+	box-shadow: 0 0 4px rgba(23, 23, 23, 0.8);
+}
+
+.toggle {
+	transition: 1.25s;
+}
+
+.menu.active .toggle {
+	transform: rotate(315deg);
+	background-color: var(--bg-color);
+}
+
+.menu li {
+	transition: 0.5s;
+	transition-delay: calc(0.1s * var(--i));
+}
+.menu.active li {
+	transform: translateY(calc(100px / 3 * var(--i))) translateY(45px);
+	opacity: 1;
+}
+
 body {
  	margin:0;
 	background-color: var(--bg-color);
@@ -60,6 +130,7 @@ body {
 	flex-flow: column;
   	justify-content: center;
   	padding: 0px;
+	height: 100%;
 } 	
 h1 {
 	font-family: 'Shrikhand', serif;
@@ -70,9 +141,10 @@ h1 {
 }
 
 h4 {
-	color: rgb(240, 240, 240);
+	color: white;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
+	font-size:16px;
 	margin: 0px;
 }
 
@@ -100,8 +172,8 @@ h3 {
 	background: transparent;
     margin: 20px;
 	border-spacing: inherit;
-    border-image: linear-gradient(to bottom, mediumslateblue, transparent) 1 100%;
-    border-width: 6px;
+    border-image: linear-gradient(to bottom, transparent, mediumslateblue, transparent) 1 100%;
+    border-width: 3px;
     border-style: solid;
     box-sizing: border-box;
     border-radius: 15px;
@@ -143,6 +215,192 @@ h3 {
 	text-align:center;
 	background: transparent;
 }
+
+.home-nav {
+	display: flex; 
+	flex-direction: row;
+	align-items: center;
+	margin: 30px;
+}
+
+.home-nav h2 {
+	letter-spacing: 2px;
+}
+
+.home-nav a {
+	margin: 20px;
+	background: var(--bg-color);
+	box-sizing: border-box;
+	border: solid 2px transparent;
+	border-radius: 15px;
+	padding: 10px;
+	color: transparent;
+	box-shadow: 0px 0px 5px transparent, 0px 0px 10px transparent, 0px 0px 20px transparent;
+}
+
+.home-nav a:hover {
+	background: navy;
+	box-sizing: border-box;
+	border: solid 2px;
+	border-color: mediumaquamarine;
+	border-radius: 15px;
+	padding: 10px;
+	color: mediumaquamarine;
+	box-shadow: 0px 0px 5px mediumslateblue, 0px 0px 10px aquamarine, 0px 0px 20px indigo;
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 10;
+	height: 80vh;
+	margin: 20px;
+	margin-top: 0px;
+}
+
+.intro h1 {
+	letter-spacing: 2px;
+	
+}
+
+.intro h1:hover {
+	animation: jiggle 10s linear infinite;
+	text-shadow:0px 0px 5px mediumslateblue, 0px 0px 10px aquamarine, 0px 0px 20px indigo; 
+}
+
+.intro a {
+	color: transparent;
+}
+
+@keyframes jiggle {
+	0% {
+		letter-spacing: 2px; 
+		transform:skewY(0)
+	}
+	25% {
+		letter-spacing: 10px;
+		transform:skewY(15deg)
+	}
+	50% {
+		letter-spacing: 2px;
+		transform:skewY(0)
+	}
+	75% {
+		letter-spacing: 10px;
+		transform:skewY(-15deg)
+	}
+	100% {
+		letter-spacing: 2px;
+		transform:skewX(0)
+	}
+}
+
+.intro h2 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-size:20px;
+	padding: 15px;
+	background: linear-gradient(240deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+	box-sizing: border-box;
+	border: solid 1px white;
+	border-radius: 15px;
+	text-align: center;
+	height: 100%;
+	width: 90%;
+	margin-bottom: 20px;
+}
+
+.intro h2:hover {
+	box-shadow: 0px 0px 5px mediumslateblue, 0px 0px 10px aquamarine, 0px 0px 20px indigo;
+	
+}
+
+.about {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    margin: 20px auto;
+	max-width: 80vw;
+    z-index: 10;
+	height: 100%;
+}
+
+.about img {
+	border: 1px solid mediumslateblue;
+    border-radius: 15px;
+    max-width: 55%;
+    height: 100%;
+	object-fit: contain;
+	box-sizing: border-box;
+
+}
+
+.about-text {
+    padding: 10px;
+	border: 1px solid mediumslateblue;
+    border-radius: 15px;
+	margin: 0;
+    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    height: 97%;
+	width: 40%;
+	margin-left: 20px;
+	object-fit: contain;
+}
+
+.button-portfolio {
+	width: 100%;
+	align-items: bottom;
+	background: linear-gradient(60deg, rgba(0, 172, 193, 1) 0%, rgba(84, 58, 183, 1) 100%);
+	padding: 5px;
+	border-radius: 20px;
+	border: solid 2px;
+	border-color: white;
+	font-family: 'Shrikhand', serif;
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	color: white;
+	box-shadow: 0px 0px 5px transparent, 0px 0px 10px transparent, 0px 0px 20px transparent;
+}
+
+.button-portfolio:hover {
+	background: navy;
+	animation: about-btn 1s linear infinite;
+	box-shadow: 0px 0px 5px blue, 0px 0px 10px mediumaquamarine, 0px 0px 20px indigo;
+}
+
+.secret {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+	margin-top: -80px;
+	margin-bottom: -60px;
+}
+
+@keyframes about-btn {
+	0% {
+		transform: rotate(0deg);
+		border-color: mediumslateblue mediumaquamarine mediumslateblue mediumslateblue;
+
+	}
+	25% {
+		border-color: mediumslateblue mediumslateblue mediumaquamarine mediumslateblue;
+	}
+	50% {
+		border-color: mediumslateblue mediumslateblue mediumslateblue mediumaquamarine;
+	}
+	75% {
+		border-color: mediumaquamarine mediumslateblue mediumslateblue mediumslateblue;
+	}
+	100% {
+		border-color: mediumslateblue mediumaquamarine mediumslateblue mediumslateblue;
+	}
+}
+
 
 .parallax > use {
 	animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
