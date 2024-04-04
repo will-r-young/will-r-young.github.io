@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.width = 1080;
     canvas.height = 1080;
 
-    const frameCount = 4;
+    const frameCount = 14;
     const images = [];
     const shirtScroll = {
         frame: 0
