@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
             snap: "frame",
             ease: "none",
             scrollTrigger: {
-                scrub: 0.5
+                scrub: 0.01
             },
             onUpdate: render
         });
