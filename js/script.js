@@ -91,3 +91,29 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 });
+
+var currentImageIndex = 1;
+var totalImages = 4;
+var lastScrollPosition = 0;
+
+function changeImage(direction) {
+  currentImageIndex += direction;
+
+  if (currentImageIndex < 1) {
+    currentImageIndex = totalImages;
+  } else if (currentImageIndex > totalImages) {
+    currentImageIndex = 1;
+  }
+
+  var imageUrl = 'imgs/shirt_scroll/shirt_' + currentImageIndex + '.png';
+  document.getElementById('shirtImage').src = imageUrl;
+}
+
+window.addEventListener('scroll', function() {
+  var currentScroll = window.scrollY;
+  var scrollDirection = currentScroll > lastScrollPosition ? 1 : -1;
+
+  changeImage(scrollDirection);
+  lastScrollPosition = currentScroll;
+});
+
