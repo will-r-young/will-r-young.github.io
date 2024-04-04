@@ -13,8 +13,7 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-	
-	
+    gsap.registerPlugin(ScrollTrigger)
     const cards = document.querySelectorAll(".card");
 
     function setupCardListeners() {
@@ -23,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (cardsContainer) {
             cardsContainer.onmousemove = e => {
                 for (const card of cards) {
-                    const rect = card.getBoundingClientRect(),
-                        x = e.clientX - rect.left,
-                        y = e.clientY - rect.top;
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
 
                     card.style.setProperty("--mouse-x", `${x}px`);
                     card.style.setProperty("--mouse-y", `${y}px`);
@@ -90,59 +89,43 @@ document.addEventListener("DOMContentLoaded", function () {
             menu.classList.toggle('active');
         };
     }
+    
+    const canvas = document.getElementById("shirt-scroll");
+    const context = canvas.getContext("2d");
+
+    canvas.width = 1158;
+    canvas.height = 770;
+
+    const frameCount = 4;
+    const currentFrame = index => (
+        `imgs/shirt_scroll/shirt_${(index + 1).toString()}.png`
+    );
+
+    const images = []
+    const shirtScroll = {
+        frame: 0
+    };
+
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        images.push(img);
+    }
+
+    gsap.to(shirtScroll, {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: "none",
+        scrollTrigger: {
+            scrub: 0.5
+        },
+        onUpdate: render
+    });
+
+    images[0].onload = render;
+
+    function render() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(images[shirtScroll.frame], 0, 0); 
+    }
 });
-
-var currentImageIndex = 1;
-var totalImages = 4;
-var lastScrollPosition = 0; // Define lastScrollPosition variable
-
-function changeImage(direction) {
-  var imageUrl;
-
-  if (direction === 1) {
-    currentImageIndex++;
-    if (currentImageIndex > totalImages) {
-      currentImageIndex = 1;
-    }
-  } else if (direction === -1) {
-    currentImageIndex--;
-    if (currentImageIndex < 1) {
-      currentImageIndex = totalImages;
-    }
-  }
-
-  // Set image URL based on currentImageIndex
-  switch (currentImageIndex) {
-    case 1:
-      imageUrl = 'imgs/shirt_scroll/shirt_1.png';
-      break;
-    case 2:
-      imageUrl = 'imgs/shirt_scroll/shirt_2.png';
-      break;
-    case 3:
-      imageUrl = 'imgs/shirt_scroll/shirt_3.png';
-      break;
-    case 4:
-      imageUrl = 'imgs/shirt_scroll/shirt_4.png';
-      break;
-    default:
-      imageUrl = 'imgs/shirt_scroll/shirt_1.png'; // Default to the first image
-  }
-
-  // Update the image source
-  document.getElementById('shirtImage').src = imageUrl;
-}
-
-window.onscroll = function() {
-  var scrollPosition = window.scrollY || document.documentElement.scrollTop;
-
-  if (scrollPosition > lastScrollPosition) {
-    changeImage(1); // Scroll down
-  } else {
-    changeImage(-1); // Scroll up
-  }
-
-  lastScrollPosition = scrollPosition <= 0 ? 0 : scrollPosition; // Prevent negative values
-};
-
-  
