@@ -93,39 +93,47 @@ document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("shirt-scroll");
     const context = canvas.getContext("2d");
 
-    canvas.width = 1158;
-    canvas.height = 770;
+    canvas.width = 1080;
+    canvas.height = 1080;
 
     const frameCount = 4;
-    const currentFrame = index => (
-        `imgs/shirt_scroll/shirt_${(index + 1).toString()}.png`
-    );
-
-    const images = []
+    const images = [];
     const shirtScroll = {
         frame: 0
     };
 
-    for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i);
-        images.push(img);
+    function currentFrame(index) {
+        return `imgs/shirt_scroll/shirt_${(index + 1).toString()}.png`;
     }
 
-    gsap.to(shirtScroll, {
-        frame: frameCount - 1,
-        snap: "frame",
-        ease: "none",
-        scrollTrigger: {
-            scrub: 0.5
-        },
-        onUpdate: render
-    });
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.onload = () => {
+            images.push(img);
+            if (images.length === frameCount) {
+                // All images are loaded, start animation
+                setupAnimation();
+            }
+        };
+        img.src = currentFrame(i);
+    }
 
-    images[0].onload = render;
+    function setupAnimation() {
+        gsap.to(shirtScroll, {
+            frame: frameCount - 1,
+            snap: "frame",
+            ease: "none",
+            scrollTrigger: {
+                scrub: 0.5
+            },
+            onUpdate: render
+        });
+
+        render(); // Initial render
+    }
 
     function render() {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(images[shirtScroll.frame], 0, 0); 
+        context.drawImage(images[shirtScroll.frame], 0, 0, canvas.width, canvas.height); 
     }
 });
