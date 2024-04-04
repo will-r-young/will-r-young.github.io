@@ -94,26 +94,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
 var currentImageIndex = 1;
 var totalImages = 4;
-var lastScrollPosition = 0;
+var lastScrollPosition = 0; // Define lastScrollPosition variable
 
 function changeImage(direction) {
-  currentImageIndex += direction;
+  var imageUrl;
 
-  if (currentImageIndex < 1) {
-    currentImageIndex = totalImages;
-  } else if (currentImageIndex > totalImages) {
-    currentImageIndex = 1;
+  if (direction === 1) {
+    currentImageIndex++;
+    if (currentImageIndex > totalImages) {
+      currentImageIndex = 1;
+    }
+  } else if (direction === -1) {
+    currentImageIndex--;
+    if (currentImageIndex < 1) {
+      currentImageIndex = totalImages;
+    }
   }
 
-  var imageUrl = 'imgs/shirt_scroll/shirt_' + currentImageIndex + '.png';
+  // Set image URL based on currentImageIndex
+  switch (currentImageIndex) {
+    case 1:
+      imageUrl = 'imgs/shirt_scroll/shirt_1.png';
+      break;
+    case 2:
+      imageUrl = 'imgs/shirt_scroll/shirt_2.png';
+      break;
+    case 3:
+      imageUrl = 'imgs/shirt_scroll/shirt_3.png';
+      break;
+    case 4:
+      imageUrl = 'imgs/shirt_scroll/shirt_4.png';
+      break;
+    default:
+      imageUrl = 'imgs/shirt_scroll/shirt_1.png'; // Default to the first image
+  }
+
+  // Update the image source
   document.getElementById('shirtImage').src = imageUrl;
 }
 
-window.addEventListener('scroll', function() {
-  var currentScroll = window.scrollY;
-  var scrollDirection = currentScroll > lastScrollPosition ? 1 : -1;
+window.onscroll = function() {
+  var scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-  changeImage(scrollDirection);
-  lastScrollPosition = currentScroll;
-});
+  if (scrollPosition > lastScrollPosition) {
+    changeImage(1); // Scroll down
+  } else {
+    changeImage(-1); // Scroll up
+  }
 
+  lastScrollPosition = scrollPosition <= 0 ? 0 : scrollPosition; // Prevent negative values
+};
+
+  
