@@ -58,60 +58,72 @@ html {
 }
 
 .menu {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	right:0;
-	top: 0;
-	width: 110px;
-	height: 75px;
-	box-sizing: border-box;
-	z-index:3;
-	padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    width: auto;
+    max-width: calc(100% - 20px);
+    height: 75px;
+    box-sizing: border-box;
+    z-index: 3;
+    padding-right: 10px;
 }
-.menu li {
-	position: absolute;
-	list-style: none;  
-	transform-origin: bottom;
-	opacity: 0;
-}
-.menu li a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: '';
-	height: '';
-	padding: 5px;
-	border-radius: 10px;
-	background: indigo;
-	cursor: pointer;
-	box-shadow: 0 0 4px rgba(0, 0, 0, .8);
-	color: #111;
-	transition: .5s;
-	}
-.menu li a:hover {
-	color: mediumaquamarine;
-	background-color: navy;
-	box-shadow: 0 0 4px rgba(0, 128, 128, .8);
-	transform: scale(1.05) translateX(-10px);
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .menu ul li {
+    position: relative;
+    transform-origin: center;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.menu ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: '';
+    padding: 5px;
+    border-radius: 10px;
+    background: indigo;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+    color: #111;
+    transition: .5s;
+}
+
+.menu ul li a:hover {
+    color: mediumaquamarine;
+    background-color: navy;
+    box-shadow: 0 0 4px rgba(0, 128, 128, .8);
+    transform: scale(1.05) translateX(-10px);
+}
+
+.menu ul li:nth-child(1) {
     --i: 0;
 }
 
-.menu ul li:nth-child(odd) {
+.menu ul li:nth-child(2) {
     --i: 1;
 }
 
-.menu ul li:nth-child(3n + 1) {
+.menu ul li:nth-child(3) {
     --i: 2;
 }
 
-.menu ul li:nth-child(4n + 1) {
+.menu ul li:nth-child(4) {
     --i: 3;
 }
+
+
 
 .toggle {
 	display: flex;
@@ -141,7 +153,7 @@ html {
 	transition-delay: calc(0.1s * var(--i));
 }
 .menu.active li {
-	transform: translateY(calc(100px / 3 * var(--i))) translateY(45px);
+	transform: translateY(calc(30px / 3 * var(--i))) translateY(100px);
 	opacity: 1;
 }
 
