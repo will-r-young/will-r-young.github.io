@@ -169,7 +169,7 @@ h1 {
 	font-family: 'Shrikhand', serif;
 	font-weight:400;
 	letter-spacing: 2px;
-	font-size:48px;
+	font-size: calc(2vw + 1rem);
 	color: white;
 }
 
@@ -184,6 +184,7 @@ h4 {
 h2, span {
 	color: rgb(240, 240, 240);
 	font-family: 'Shrikhand', serif;
+	font-size: calc(1vw + 0.5rem);
 	font-weight: 400;
 	margin: 0px;
 }
@@ -191,7 +192,7 @@ h2, span {
 h3 {
 	font-family: 'Montserrat', sans-serif;
 	letter-spacing: 1px;
-	font-size:20px;
+	font-size: calc(0.8vw + 0.8rem);
 	color: white;
 }
 
@@ -289,6 +290,8 @@ h3 {
 
 .home-nav img {
     width: 10vw;
+	max-width: 100px;
+	margin: 20px;
 }
 
 .home-nav h2 {
@@ -317,25 +320,6 @@ h3 {
     color: mediumaquamarine;
     box-shadow: 0px 0px 5px mediumslateblue, 0px 0px 10px aquamarine, 0px 0px 20px indigo;
 }
-
-@media (max-width: 768px) {
-    .home-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 10px 0;
-    }
-
-    .home-nav img {
-        width: 100px;
-        margin-bottom: 10px;
-    }
-
-    .home-nav a {
-        margin: 10px 0;
-        width: auto; /* Set width to auto for flexible sizing */
-    }
-}
-
 
 
 .intro {
@@ -789,29 +773,23 @@ canvas {
     }
   }
 
-
-@media(max-width: 1000px) {
-	body {
-		align-items: flex;  
-		overflow: auto;
-	}
-  
-	#cards {    
-		max-width: 1000px;
-		padding: 10px 0px;
-	}
-  
+  @media(max-width: 320px) {
 	.card {
-		flex-shrink: 1;
-		width: calc(50% - 4px);
-		}
-}
-
-.card.active .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
+		width: 100%;
+	}
+	
+	.waves {
+		height:40px;
+		min-height:40px;
+	}
+	
+	.content {
+		height:30vh;
+	}
+	
+	h1 {
+		font-size:24px;
+	}
 }
 
 @media(max-width: 500px) {
@@ -845,40 +823,35 @@ canvas {
 	}
 }
 
-.card.active .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
+  @media (max-width: 768px) {
+    .home-nav a {
+        display: none;
+    }
+
+    .inner-header {
+        padding-top: 5px;
+    }
+
+    .home-nav img {
+        width: 100px;
+        margin-bottom: 10px;
+		padding-top: 30px;
+    }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 1000px) {
+	body {
+		align-items: flex;  
+		overflow: auto;
+	}
+  
+	#cards {    
+		max-width: 1000px;
+		padding: 10px 0px;
+	}
+  
 	.card {
-		width: 100%;
-	}
-	
-	.waves {
-		height:40px;
-		min-height:40px;
-	}
-	
-	.content {
-		height:30vh;
-	}
-	
-	h1 {
-		font-size:24px;
-	}
+		flex-shrink: 1;
+		width: calc(50% - 4px);
+		}
 }
-
-.card.active .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
-}
-
-
-
-
-
