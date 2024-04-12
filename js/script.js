@@ -136,4 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(images[shirtScroll.frame], 0, 0, canvas.width, canvas.height); 
     }
+
+    
 });
