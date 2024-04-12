@@ -96,6 +96,23 @@ html {
 	box-shadow: 0 0 4px rgba(0, 128, 128, .8);
 	transform: scale(1.05) translateX(-10px);
 }
+
+.menu ul li {
+    --i: 0;
+}
+
+.menu ul li:nth-child(odd) {
+    --i: 1;
+}
+
+.menu ul li:nth-child(3n + 1) {
+    --i: 2;
+}
+
+.menu ul li:nth-child(4n + 1) {
+    --i: 3;
+}
+
 .toggle {
 	display: flex;
 	justify-content: center;
@@ -226,8 +243,8 @@ h3 {
 	width: 100vw;
 	height: 85vh;
 	object-fit: cover;
-	mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
 	-webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+	mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
   }
   
   .hero-content {
