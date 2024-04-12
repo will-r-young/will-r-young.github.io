@@ -224,7 +224,7 @@ h3 {
 	top: 0;
 	left: 0;
 	width: 100vw;
-	height: 80vh;
+	height: 85vh;
 	object-fit: cover;
 	mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
 	-webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
