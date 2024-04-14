@@ -136,6 +136,14 @@ document.addEventListener("DOMContentLoaded", function () {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(images[shirtScroll.frame], 0, 0, canvas.width, canvas.height); 
     }
+    
+    const videos = document.querySelectorAll(".card-video");
 
+    videos.forEach(video => {
+        video.addEventListener("ended", () => {
+            video.currentTime = 0;
+            video.play();
+        });
+    });
     
 });
