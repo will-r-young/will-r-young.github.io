@@ -669,14 +669,14 @@ h3 {
     bottom: 10px;
     left: 10px;
     padding: 10px;
-    z-index: 3;
+    z-index: 6;
 }
 
 .card-info {
     display: flex;
     flex-direction: column;
     gap: 5px;
-	z-index: 7;
+	z-index: 6;
 }
 
 .card-info-title > h3,
@@ -687,7 +687,7 @@ h3 {
 .card-video {
     width: 95%;
     height: 95%;
-    z-index: 6;
+    z-index: 7;
 	object-fit: cover;
     position: absolute; 
     border-radius: 15px; 
