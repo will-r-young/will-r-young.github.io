@@ -91,7 +91,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     const canvas = document.getElementById("shirt-scroll");
+
+    if (!canvas) {
+        console.error("Canvas element with ID 'shirt-scroll' not found.");
+        return;
+    }
+
     const context = canvas.getContext("2d");
+
+    if (!context) {
+        console.error("Failed to get 2D context for canvas.");
+        return;
+    }
 
     canvas.width = 1080;
     canvas.height = 1080;
@@ -129,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             onUpdate: render
         });
 
-        render(); // Initial render
+        render(); 
     }
 
     function render() {

@@ -688,12 +688,49 @@ h3 {
     height: auto;
     z-index: 7;
 	object-fit: cover;
-    position: absolute; 
+    position: relative; 
     border-radius: 15px; 
     overflow: hidden;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.card-video::before,
+.card-video::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Adjust border-radius as needed */
+    transition: opacity 0.3s ease; /* Add a transition for smooth appearance */
+    pointer-events: none; /* Ensure pseudo-elements don't interfere with video controls */
+    z-index: -1; /* Place behind the video */
+}
+
+.card-video::before {
+    background: radial-gradient(
+        800px circle at center center, 
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+    opacity: 0;
+}
+
+.card-video::after {
+    background: radial-gradient(
+        600px circle at center center, 
+        rgba(123, 104, 238, 0.6),
+        transparent 40%
+    );
+    opacity: 0;
+}
+
+.card-video:hover::before,
+.card-video:hover::after {
+    opacity: 1; /* Show the radial gradients on hover */
 }
 
 canvas {
