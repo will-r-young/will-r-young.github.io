@@ -527,10 +527,10 @@ h3 {
 
 #cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust the minmax values as needed */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
     max-width: 1000px;
-    width: calc(100% - 40px); /* Adjust as needed */
+    width: calc(100% - 40px);
     margin: 20px auto;
     padding: 20px;
 }
@@ -549,7 +549,7 @@ h3 {
     position: relative;
     transition: transform 0.5s ease-in-out;
     width: 100%;
-    max-width: 300px; /* Adjust as needed */
+    max-width: 300px;
     height: 300px;
     padding: 20px;
     box-sizing: border-box;
