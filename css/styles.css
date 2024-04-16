@@ -592,6 +592,7 @@ h3 {
 		transparent 40%
 	);
 	z-index: 1;
+	box-sizing: border-box;
 	
 }
 
@@ -620,7 +621,7 @@ h3 {
     left: 50%;
     margin: 0;
 	padding: 10px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 
@@ -694,6 +695,13 @@ h3 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.card.active .card-video video {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center center;
 }
 
 canvas {
@@ -789,7 +797,7 @@ canvas {
   
 	#cards {    
 		max-width: 50vw;
-		padding: 10px 0px;
+		padding: 10px;
 	}
   
 	.card {
@@ -819,7 +827,7 @@ canvas {
   
 	#cards {    
 		max-width: 50vw;
-		padding: 10px 0px;
+		padding: 10px;
 	}
   
 	.card {
@@ -867,7 +875,7 @@ canvas {
   
 	#cards {    
 		max-width: 50vw;
-		padding: 10px 0px;
+		padding: 10px;
 	}
   
 	.card {
@@ -881,10 +889,17 @@ canvas {
 		align-items: flex;  
 		overflow: auto;
 	}
+
+	.flex {
+		display: flex;
+		flex-direction: column;
+		align-items: center; /* Center-align items in the flex container */
+	  }
   
 	#cards {    
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		max-width: 50vw;
-		padding: 10px 0px;
+		padding: 10px;
 	}
   
 	.card {
