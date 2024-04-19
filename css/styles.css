@@ -528,11 +528,13 @@ h3 {
 #cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	justify-content: center;
     grid-gap: 20px;
-    max-width: 90vw;
     width: calc(100% - 40px);
     margin: 20px;
-    padding: 20px;
+	align-content: center;
+	align-items: center;
+	justify-items: center;
 }
 
 #cards:hover > .card::after {
@@ -799,11 +801,6 @@ canvas {
 		max-width: 90vw;
 		padding: 10px;
 	}
-  
-	.card {
-		flex-shrink: 1;
-		width: calc(50% - 4px);
-		}
 	
 	.waves {
 		height:40px;
@@ -829,11 +826,7 @@ canvas {
 		max-width: 90vw;
 		padding: 10px;
 	}
-  
-	.card {
-		flex-shrink: 1;
-		width: calc(50% - 4px);
-		}
+
     
 	.card-info-wrapper {
 		padding: 0px 10px;
@@ -877,11 +870,6 @@ canvas {
 		max-width: 90vw;
 		padding: 10px;
 	}
-  
-	.card {
-		flex-shrink: 1;
-		width: calc(50% - 4px);
-		}
 }
 
 @media(max-width: 1000px) {
@@ -889,22 +877,9 @@ canvas {
 		align-items: flex;  
 		overflow: auto;
 	}
-
-	.flex {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 20px;
-		justify-content: center;
-	  }
   
 	#cards {    
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		max-width: 90vw;
 		padding: 10px;
 	}
-  
-	.card {
-		flex-shrink: 1;
-		width: calc(50% - 4px);
-		}
 }
