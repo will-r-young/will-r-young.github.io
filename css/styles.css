@@ -679,13 +679,18 @@ h3 {
 }
 
 .card.active .card-nav h2{
+	display: flex;
 	position: absolute;
-	top: 5%;
-	left: 5%;
+	top: 0%;
+	left: 3%;
 	z-index: 10;
 	transform: rotate(315deg);
 	font-size: calc(1vw + 2rem);
 	font-family: 'Shrikhand', serif;
+}
+
+.card.active .card-nav h2:hover{
+	text-shadow: 0 0 20px mediumslateblue;
 }
 
 .card-image {
