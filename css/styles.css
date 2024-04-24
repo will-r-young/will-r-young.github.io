@@ -668,6 +668,20 @@ h3 {
 	z-index: 5;
 }
 
+.card:not(.active) .card-nav {
+	display: none;
+}
+
+.card.active .card-nav h2{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	z-index: 10;
+	transform: rotate(315deg);
+	font-size: calc(1vw + 2rem);
+	font-family: 'Shrikhand', serif;
+}
+
 .card-image {
 	align-items: center;
 	display: flex;
