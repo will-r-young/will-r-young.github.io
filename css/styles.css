@@ -82,6 +82,7 @@ html {
     position: relative;
     transform-origin: center;
     opacity: 0;
+	z-index: -1;
     white-space: nowrap;
 }
 
@@ -135,9 +136,6 @@ html {
 	cursor: pointer;
 	z-index: 999;
 	box-shadow: 0 0 4px rgba(23, 23, 23, 0.8);
-}
-
-.toggle {
 	transition: 1.25s;
 }
 
@@ -234,7 +232,7 @@ h3 {
 
 .waves {
 	position: relative;
-	width: 100%;
+	width: 100vw;
 	height:10vh;
 	margin-bottom:-7px; 
 	min-height:100px;
