@@ -715,7 +715,6 @@ h3 {
 .card-video {
     width: 95%;
     height: auto;
-    z-index: 7;
 	object-fit: cover;
     position: relative; 
     border-radius: 15px; 
@@ -822,11 +821,6 @@ canvas {
 		align-items: flex;  
 		overflow: auto;
 	}
-  
-	#cards {    
-		max-width: 90vw;
-		padding: 10px;
-	}
 	
 	.waves {
 		height:40px;
@@ -847,29 +841,7 @@ canvas {
 		align-items: flex;  
 		overflow: auto;
 	}
-  
-	#cards {    
-		max-width: 90vw;
-		padding: 10px;
-	}
 
-    
-	.card-info-wrapper {
-		padding: 0px 10px;
-	}
-  
-	.card-info > i { 
-		font-size: 0.8em; 
-	}
-  
-	.card-info-title > h3 {
-		font-size: 0.9em;
-	}
-
-	.card-info-title > h4 {
-		font-size: 0.8em;
-		margin-top: 4px;
-	}
 }
 
   @media (max-width: 768px) {
@@ -891,21 +863,11 @@ canvas {
 		align-items: flex;  
 		overflow: auto;
 	}
-  
-	#cards {    
-		max-width: 90vw;
-		padding: 10px;
-	}
 }
 
 @media(max-width: 1000px) {
 	body {
 		align-items: flex;  
 		overflow: auto;
-	}
-  
-	#cards {    
-		max-width: 90vw;
-		padding: 10px;
 	}
 }
