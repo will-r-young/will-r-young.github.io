@@ -379,17 +379,17 @@ h3 {
 
 .intro h2 {
 	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	font-size:20px;
+	font-weight: 200;
+	font-size: calc(1vw + .8rem);
 	padding: 15px;
-	background: linear-gradient(240deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+	background: linear-gradient(60deg, #1b1b1b 0%, #111 100%);
 	box-sizing: border-box;
 	border: solid 1px white;
 	border-radius: 15px;
 	text-align: center;
 	height: 100%;
-	width: 90%;
-	margin-bottom: 20px;
+	width: 90vw;
+	margin: 20px;
 }
 
 .intro h2:hover {
@@ -433,8 +433,9 @@ h3 {
 }
 
 .button-portfolio {
-	width: 100%;
-	align-items: bottom;
+	display: flex-start;
+	align-items: center;
+	justify-content: center;
 	margin: 10px;
 	background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
 	padding: 5px;
