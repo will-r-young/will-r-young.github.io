@@ -263,6 +263,7 @@ h3 {
 	left: 50%;
 	transform: translate(-50%, 0%);
 	text-align: center;
+	text-wrap: nowrap;
 	color: white;
   }
 
