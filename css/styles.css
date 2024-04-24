@@ -278,6 +278,16 @@ h3 {
 	background: transparent;
 }
 
+.footer-nav {
+	height: 5vh;
+	width: 100vw;
+	display: flex-start;
+	position: sticky;
+	text-align:center;
+	background: linear-gradient(60deg, rgba(0,172,193,1) 0%, rgba(84,58,183,1) 100%);
+	color: white;
+}
+
 .home-nav {
     display: flex;
     flex-direction: row;
@@ -425,7 +435,8 @@ h3 {
 .button-portfolio {
 	width: 100%;
 	align-items: bottom;
-	background: linear-gradient(60deg, rgba(0, 172, 193, 1) 0%, rgba(84, 58, 183, 1) 100%);
+	margin: 10px;
+	background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
 	padding: 5px;
 	border-radius: 20px;
 	border: solid 2px;
