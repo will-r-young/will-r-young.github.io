@@ -404,38 +404,47 @@ h3 {
 }
 
 .about {
-    display: flex;
+    display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     align-items: top;
+	align-content: center;
     justify-content: center;
+	justify-items: center;
+	width: 90vw;
+	height: auto;
     padding: 20px;
     border: 1px solid #fff;
-    border-radius: 25px;
-    margin: 20px auto;
-	max-width: 80vw;
+    border-radius: 15px;
+    margin: 20px;
     z-index: 10;
-	height: 100%;
 }
 
 .about img {
 	border: 1px solid mediumslateblue;
     border-radius: 15px;
-    max-width: 55%;
-    height: 100%;
+    width: 90vw;
+	max-width: 300px;
+    height: auto;
 	object-fit: contain;
-	box-sizing: border-box;
-
+	margin: 10px;
+	padding: 10px;
 }
 
 .about-text {
     padding: 10px;
 	border: 1px solid mediumslateblue;
     border-radius: 15px;
-	margin: 0;
-    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
-    height: 97%;
-	width: 40%;
-	margin-left: 20px;
+	margin: 10px;
+    background: var(--card-color);
+	width: 90vw;
+	max-width: 400px;
+	height: auto;
 	object-fit: contain;
+}
+
+.about-text h3 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: calc(1vw + .7rem);
 }
 
 .button-portfolio {
@@ -449,7 +458,7 @@ h3 {
 	border: solid 2px;
 	border-color: white;
 	font-family: 'Shrikhand', serif;
-	font-size: 16px;
+	font-size: calc(1vw + .8rem);
 	font-weight: 400;
 	letter-spacing: 1px;
 	color: white;
