@@ -405,12 +405,14 @@ h3 {
 
 .about {
     display: grid;
+	position: relative;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    align-items: top;
+    align-items: center;
 	align-content: center;
     justify-content: center;
 	justify-items: center;
-	width: 90vw;
+	gap: 20px;
+	width: 85vw;
 	height: auto;
     padding: 20px;
     border: 1px solid #fff;
@@ -426,7 +428,7 @@ h3 {
 	max-width: 300px;
     height: auto;
 	object-fit: contain;
-	margin: 10px;
+	margin: 0;
 	padding: 10px;
 }
 
@@ -434,7 +436,7 @@ h3 {
     padding: 10px;
 	border: 1px solid mediumslateblue;
     border-radius: 15px;
-	margin: 10px;
+	margin: 0;
     background: var(--card-color);
 	width: 70vw;
 	max-width: 400px;
@@ -451,7 +453,7 @@ h3 {
 	padding: 10px;
 	border: 1px solid mediumslateblue;
     border-radius: 15px;
-	margin: 10px;
+	margin: 0;
     background: var(--card-color);
 	width: 70vw;
 	max-width: 300px;
