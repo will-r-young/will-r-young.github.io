@@ -411,14 +411,15 @@ h3 {
 	align-content: center;
     justify-content: center;
 	justify-items: center;
-	gap: 20px;
-	width: 85vw;
+	gap: 10px;
+	max-width: 100%;
 	height: auto;
     padding: 20px;
     border: 1px solid #fff;
     border-radius: 15px;
     margin: 20px;
     z-index: 10;
+	box-sizing: border-box;
 }
 
 .about img {
@@ -498,6 +499,74 @@ h3 {
 	background: navy;
 	animation: about-btn 1s linear infinite;
 	box-shadow: 0px 0px 5px blue, 0px 0px 10px mediumaquamarine, 0px 0px 20px indigo;
+}
+
+.wrapper { 
+	display: grid;
+    position: relative;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	justify-items: center;
+	padding: 20px; 
+	margin: 20px;
+    width: 100%;
+	max-width: 400px; 
+    background: #1b1b1b; 
+    padding: 25px; 
+    border-radius: 15px; 
+    box-shadow: 4px 4px 2px
+        mediumslateblue; 
+} 
+  
+.wrapper h2 { 
+    text-align: center; 
+    letter-spacing: 3px; 
+    color: white; 
+	font-size: 20px;
+} 
+  
+.wrapper .input_field { 
+    margin: 10px;
+} 
+  
+.wrapper 
+    .input_field 
+    input[type="text"], 
+.wrapper textarea { 
+    border: 1px solid #e0e0e0; 
+    width: 100%; 
+    padding: 10px; 
+	border-radius: 5px;
+} 
+  
+.wrapper textarea { 
+    resize: none; 
+    height: 80px; 
+} 
+  
+.wrapper .btn input[type="submit"] { 
+    border: 0px; 
+    margin-top: 15px; 
+    padding: 10px; 
+    text-align: center; 
+    width: 100%; 
+    background: mediumslateblue; 
+    color: #fcfbf7; 
+    text-transform: uppercase; 
+    letter-spacing: 5px; 
+    font-weight: bold; 
+    border-radius: 25px; 
+    cursor: pointer; 
+} 
+  
+#error_message { 
+    margin-bottom: 20px; 
+    background: #fe8b8e; 
+    padding: 0px; 
+    text-align: center; 
+    font-size: 14px; 
+    transition: all 0.5s ease; 
 }
 
 .secret {

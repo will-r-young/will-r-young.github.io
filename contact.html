@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will Young's Portfolio</title>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='100%' height='100%' rx='15' ry='15' fill='mediumslateblue'/%3E%3Ctext x='50%' y='50%' font-size='34' text-anchor='middle' dy='.35em' fill='white' font-family='Montserrat, sans-serif'%3E WY %3C/text%3E%3C/svg%3E">
+</head>
+
+<body>
+    <div class="loader"></div>
+
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <div class="menu">
+        <div class="toggle">
+            <h1>+</h1>
+        </div>
+
+        <ul>
+            <li>
+                <a href="index.html"><h4>Home</h4></a>
+            </li>
+            <li>
+                <a href="work.html"><h4>2D Design</h4></a>
+            </li>
+            <li>
+                <a href="3d.html"><h4>3D Design</h4></a> 
+            </li>
+            <li>
+                <a href="about.html"><h4>About</h4></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="header">
+		<div class="inner-header">
+			<div class="home-nav">
+                <img src="imgs/final_logo.svg" alt="wack logo">
+				<a href="index.html"><h2>Home</h2></a>
+				<a href="work.html"><h2>2D Design</h2></a>
+                <a href="3d.html"><h2>3D Design</h2></a>
+				<a href="about.html"><h2>About</h2></a>	
+			</div>
+		</div>
+		
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(84,58,183,0.7)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,172,193,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(32,178,170,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(20,20,20)" />
+                </g>
+            </svg>
+        </div>
+    </div>
+	
+    <body> 
+
+        <div class="wrapper"> 
+            <h2>Contact Me</h2> 
+            <div id="error_message"> 
+      
+            </div> 
+            <form action="" 
+                  id="myform" 
+                  onsubmit="return validate();"> 
+                <div class="input_field"> 
+                    <input type="text" 
+                           placeholder="Name" 
+                           id="name"> 
+                </div> 
+                <div class="input_field"> 
+                    <input type="text" 
+                           placeholder="Subject" 
+                           id="subject"> 
+                </div> 
+                <div class="input_field"> 
+                    <input type="text" 
+                           placeholder="Phone" 
+                           id="phone"> 
+                </div> 
+                <div class="input_field"> 
+                    <input type="text" 
+                           placeholder="Email" 
+                           id="email"> 
+                </div> 
+                <div class="input_field"> 
+                    <textarea placeholder="Message" 
+                              id="message"> 
+                    </textarea> 
+                </div> 
+                <div class="btn"> 
+                    <input type="submit"> 
+                </div>
+                </form>
+        </div>
+
+    <div class="footer">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave-footer" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave-footer" x="48" y="0" fill="rgba(84,58,183,0.7)" />
+                <use xlink:href="#gentle-wave-footer" x="48" y="3" fill="rgba(0,172,193,0.6)" />
+                <use xlink:href="#gentle-wave-footer" x="48" y="5" fill="rgba(32,178,170,0.5)" />
+                <use xlink:href="#gentle-wave-footer" x="48" y="7" fill="rgba(75, 0, 130,0.3)" />
+            </g>
+        </svg>
+        <div class="footer-nav">
+            <a href="secret.html"><h4>Hello</h4></a>
+        </div>
+
+    </div>
+</body>
+</html>
