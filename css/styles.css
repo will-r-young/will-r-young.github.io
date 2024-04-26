@@ -447,6 +447,33 @@ h3 {
 	font-size: calc(1vw + .7rem);
 }
 
+.skills-text {
+	padding: 10px;
+	border: 1px solid mediumslateblue;
+    border-radius: 15px;
+	margin: 10px;
+    background: var(--card-color);
+	width: 90vw;
+	max-width: 300px;
+	height: auto;
+	object-fit: contain;
+}
+
+.skills-text h2 {
+	font-family: 'Shrikhand', serif;
+	font-size: calc(1vw + .8rem);
+	font-weight: 300;
+	text-decoration: underline;
+	text-underline-offset: 10px;
+}
+
+.skills-text ul li {
+	list-style-type: disc;
+	font-family: 'Montserrat', sans-serif;
+	font-size: calc(1vw + .7rem);
+	color: #FFF;
+}
+
 .button-portfolio {
 	display: flex-start;
 	align-items: center;
@@ -458,8 +485,8 @@ h3 {
 	border: solid 2px;
 	border-color: white;
 	font-family: 'Shrikhand', serif;
-	font-size: calc(1vw + .8rem);
-	font-weight: 400;
+	font-size: calc(1vw + .7rem);;
+	font-weight: 300;
 	letter-spacing: 1px;
 	color: white;
 	box-shadow: 0px 0px 5px transparent, 0px 0px 10px transparent, 0px 0px 20px transparent;
@@ -876,6 +903,29 @@ canvas {
 	body {
 		align-items: flex;  
 		overflow: auto;
+	}
+
+}
+
+@media (min-width: 768px) {
+	.about-text h3 {
+		font-size: 18px;
+	}
+
+	.button-portfolio {
+		font-size: 18px;
+	}
+
+	.intro h2 {
+		font-size: 18px;
+	}
+
+	.skills-text h2 {
+		font-size: 20px;
+	}
+	
+	.skills-text ul li {
+		font-size: 18px;
 	}
 
 }
