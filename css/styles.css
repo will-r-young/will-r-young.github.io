@@ -800,6 +800,47 @@ h3 {
 	text-shadow: 0 0 20px mediumslateblue;
 }
 
+.card.active .card-nav-arrow-l {
+	position: absolute;
+    top: 50%;
+    left: 10px; 
+    transform: translateY(-50%);
+    display: flex;
+	z-index: 999;
+}
+
+.card.active .card-nav-arrow-r {
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    display: flex;
+	z-index: 999;
+}
+
+.prev-button,
+.next-button {
+    background-color: var(--card-color);
+    color: #fff;
+    border: 1px solid white;
+	font-family: 'Shrikhand', serif;
+	font-size: calc(1vw + .5rem);
+	border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: mediumslateblue;
+}
+
+.card-nav button[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
+
 .card-image {
 	align-items: center;
 	display: flex;
