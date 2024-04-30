@@ -13,8 +13,10 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
+    /* gsap.registerPlugin(ScrollTrigger); */
     const allCards = document.querySelectorAll(".card");
+    const prevButton = document.querySelector(".prev-button");
+    const nextButton = document.querySelector(".next-button");
 
     function setupCardListeners() {
         const cardsContainer = document.getElementById("cards");
@@ -66,31 +68,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     allCards[prevIndex].focus();
                 }
             });
+        });
 
-            const prevButton = card.querySelector(".prev-button");
-            if (prevButton) {
-                prevButton.addEventListener("click", () => {
-                    const arrowLeftEvent = new Event("keydown");
-                    arrowLeftEvent.key = "ArrowLeft";
-                    document.dispatchEvent(arrowLeftEvent);
-                });
-            }
+        prevButton.addEventListener("click", function () {
+            const leftArrow = document.querySelector(".card-nav-arrow-l button");
+            leftArrow.click();
+        });
 
-            // Next button event listener
-            const nextButton = card.querySelector(".next-button");
-            if (nextButton) {
-                nextButton.addEventListener("click", () => {
-                    const arrowRightEvent = new Event("keydown");
-                    arrowRightEvent.key = "ArrowRight";
-                    document.dispatchEvent(arrowRightEvent);
-                });
-            }
-
+        nextButton.addEventListener("click", function () {
+            const rightArrow = document.querySelector(".card-nav-arrow-r button");
+            rightArrow.click();
         });
 
         document.addEventListener("click", (event) => {
             const isClickedInsideCard = event.target.closest('.card');
-        
+
             allCards.forEach(card => {
                 if (card !== isClickedInsideCard) {
                     card.classList.remove("active", "open");
