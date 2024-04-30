@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    const canvas = document.getElementById("shirt-scroll");
+    /* const canvas = document.getElementById("shirt-scroll");
 
     if (!canvas) {
         console.error("Canvas element with ID 'shirt-scroll' not found.");
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function render() {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(images[shirtScroll.frame], 0, 0, canvas.width, canvas.height);
-    }
+    } */
 
     const videos = document.querySelectorAll(".card-video");
 
