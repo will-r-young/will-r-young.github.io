@@ -215,6 +215,12 @@ h3 {
 	font-size: calc(1vw + 0.7rem);
 }
 
+.flex h4 {
+	padding: 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: calc(1vw + 0.5rem);
+}
+
 .header {
 	margin-top: -15px;
 	display: flex-start;
