@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will Young's Portfolio</title>
+    <script type="text/javascript" src="js/line_script.js"></script>
+    <link href="css/line_styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='100%' height='100%' rx='15' ry='15' fill='mediumslateblue'/%3E%3Ctext x='50%' y='50%' font-size='38' text-anchor='middle' dy='.3em' fill='white' font-family='Montserrat, sans-serif'%3E WY %3C/text%3E%3C/svg%3E">
+	
+</head>
+<body>
+    <canvas id="background">
+        <script>
+            const canvas = document.getElementById("background");
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+
+            const lineSpacing = 20;
+            const pointSpacing = 20;
+            let influenceRadius = 120;
+
+            const lines = [];
+
+            for (let y = 0; y < canvas.height; y += lineSpacing) {
+            const points = [];
+            for (let x = 0; x <= canvas.width; x += pointSpacing) {
+                points.push({
+                x,
+                baseY: y,
+                y,
+                velocity: 0
+                });
+            }
+            lines.push(points);
+            }
+
+            function lerpColor(c1, c2, t) {
+            return `rgb(${Math.round(c1[0] + (c2[0] - c1[0]) * t)},
+                        ${Math.round(c1[1] + (c2[1] - c1[1]) * t)},
+                        ${Math.round(c1[2] + (c2[2] - c1[2]) * t)})`;
+            }
+
+            let angle = 0;
+            function animateCursorCircle() {
+            if (!userInteracting) {
+                const radius = 200; 
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                mouse.x = centerX + radius * 2 * Math.cos(angle);
+                mouse.y = centerY + radius * Math.sin(angle * 2);
+                angle += 0.02; 
+                requestAnimationFrame(animateCursorCircle);
+            }
+            }
+            animateCursorCircle();
+
+            function drawLines() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const calmBlue = [0, 180, 255];
+            const neonPurple = [180, 0, 255];
+
+            lines.forEach((points) => {
+                points.forEach((p) => {
+                const dx = p.x - mouse.x;
+                const dy = p.baseY - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < influenceRadius) {
+                    const force = (1 - dist / influenceRadius) * 20;
+                    p.velocity += (mouse.y - p.y) * 0.02 * force;
+                }
+
+                const spring = (p.baseY - p.y) * 0.05;
+                p.velocity += spring;
+                p.velocity *= 0.9;
+                p.y += p.velocity;
+                });
+
+                const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+                for (let i = 0; i < points.length; i++) {
+                const p = points[i];
+                const dx = p.x - mouse.x;
+                const dy = p.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                let t = 0;
+                if (dist < influenceRadius) {
+                    const bend = Math.abs(p.y - p.baseY);
+                    t = Math.min((bend / 20) ** 1.5, 1) * (1 - dist / influenceRadius);
+                }
+                const color = lerpColor(calmBlue, neonPurple, t);
+                grad.addColorStop(p.x / canvas.width, color);
+                }
+
+                ctx.beginPath();
+                ctx.moveTo(points[0].x + 0.5, points[0].y + 0.5);
+                for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i].x + 0.5, points[i].y + 0.5);
+                }
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 1.5;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = "rgba(255,255,255,0.3)";
+                ctx.stroke();
+            });
+
+            requestAnimationFrame(drawLines);
+            }
+
+            drawLines();
+
+            window.addEventListener("wheel", (e) => {
+            influenceRadius += e.deltaY * -0.1;
+            influenceRadius = Math.max(20, Math.min(400, influenceRadius));
+            });
+
+            window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            });
+        </script>
+    </canvas>
+</body>
