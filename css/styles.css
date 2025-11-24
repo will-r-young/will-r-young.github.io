@@ -951,7 +951,7 @@ canvas {
 	background: repeating-radial-gradient(
 		circle,
 		#fff,        /* Start color */
-		#fff 2px,   /* End of first ring */
+		#fff 1px,   /* End of first ring */
 		#000 5px,   /* Start of second ring */
 		#000 10px    /* End of second ring */
 		);
