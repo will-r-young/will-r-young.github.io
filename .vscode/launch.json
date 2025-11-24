@@ -1,0 +1,7 @@
+{
+    "type": "msedge",
+    "request": "launch",
+    "name": "Launch Edge",
+    "url": "http://localhost:3000",
+    "webRoot": "${workspaceFolder}"
+}

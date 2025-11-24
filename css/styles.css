@@ -930,6 +930,35 @@ canvas {
 	align-items: center;
   }
 
+.moire-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--bg-color);
+	overflow: hidden;
+	position: relative;
+}
+
+.moire-bg {
+	position: center;
+	top: 0;
+	left: 0;
+	width: 90vw;
+	height: 90vw;
+	color: transparent;
+	background: repeating-radial-gradient(
+		circle,
+		#fff,        /* Start color */
+		#fff 2px,   /* End of first ring */
+		#000 5px,   /* Start of second ring */
+		#000 10px    /* End of second ring */
+		);
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	
+}
 
  #stars {
 	 overflow: hidden;
