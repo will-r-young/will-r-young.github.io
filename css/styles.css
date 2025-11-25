@@ -976,6 +976,73 @@ canvas {
 	transition: 0.1s ease-out;
 }
 
+.tilt-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 80vh;
+	background: conic-gradient(
+		from 0% to 50% 50%,
+		mediumslateblue,
+		aquamarine,
+		aquamarine,
+		mediumslateblue
+	);
+	background-blend-mode: multiply;
+	position: relative;
+}
+
+.tilt-card {
+	background: darkslategrey;
+	padding: 2rem;
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-style: inset;
+	border-radius: 1rem;
+	transform: 
+		perspective(5000px)
+		rotateY(var(--rotateY))
+		rotateX(var(--rotateX));
+	transform-style: preserve-3d;
+}
+
+.tilt-card h1 {
+	color: orangered;
+	text-shadow: 0 0 0.3rem orangered;
+
+}
+
+.tilt-card h2 {
+	color: greenyellow;
+	text-shadow: 0 0 0.1rem greenyellow;
+}
+
+.tilt-card::before,
+.tilt-card::after {
+	content: "";
+	position: absolute;
+	border-radius: inherit;
+}
+
+.tilt-card::before {
+	inset: 0.75rem;
+	background: black;
+	transform: translateZ(-49px);
+	filter: blur(15px);
+	opacity: 0.5;
+
+}
+
+.tilt-card::after{
+	inset: -1rem;
+	background: linear-gradient(45deg, orangered, cornflowerblue);
+	box-shadow: orangered 0 0 1rem, cornflowerblue 0 0 3rem;
+	transform: translateZ(-50px);
+}
+
+
+
+
 
  #stars {
 	 overflow: hidden;
