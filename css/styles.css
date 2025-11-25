@@ -950,15 +950,32 @@ canvas {
 	color: transparent;
 	background: repeating-radial-gradient(
 		circle,
-		#fff,        /* Start color */
-		#fff 1px,   /* End of first ring */
-		#000 5px,   /* Start of second ring */
-		#000 10px    /* End of second ring */
+		red,        /* Start color */
+		red 1px,   /* End of first ring */
+		#0000 5px,   /* Start of second ring */
+		#0000 10px    /* End of second ring */
 		);
-	border: 1px solid #ccc;
 	border-radius: 50%;
-	
 }
+
+#moire-circle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90vw;
+	height: 90vw;
+	color: transparent;
+	background: repeating-radial-gradient(
+		circle,
+		blue,        /* Start color */
+		blue 1px,   /* End of first ring */
+		#0000 5px,   /* Start of second ring */
+		#0000 10px    /* End of second ring */
+		);
+	border-radius: 50%;
+	transition: 0.1s ease-out;
+}
+
 
  #stars {
 	 overflow: hidden;
